@@ -1,12 +1,28 @@
-<form method="post">
-    {% csrf_token %}
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username">
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <button type="submit">Log in</button>
-</form>
-{% if error %}
-    <p>{{ error }}</p>
-{% endif %}
-<a href="{% url 'register' %}">Register</a>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form method="post" class="form-group">
+                    {% csrf_token %}
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" class="form-control">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control">
+                    <button type="submit" class="btn btn-primary mt-3">Log in</button>
+                </form>
+                {% if error %}
+                    <p class="text-danger">{{ error }}</p>
+                {% endif %}
+                <a href="{% url 'register' %}" class="btn btn-primary mt-3">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
