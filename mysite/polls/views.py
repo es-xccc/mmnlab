@@ -12,7 +12,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('polls/login_success')
+            return redirect('login_success')
         else:
             return render(request, 'polls/login.html', {'error': 'Invalid username or password'})
     else:
