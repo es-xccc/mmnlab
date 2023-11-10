@@ -12,9 +12,9 @@
                 <form method="post" class="form-group">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary mt-3">Register</button>
+                    <button type="submit" class="btn btn-primary mt-3">註冊</button>
                 </form>
-                <a href="{% url 'login' %}" class="btn btn-primary mt-3">Log in</a>
+                <a href="{% url 'login' %}" class="btn btn-primary mt-3">登入</a>
             </div>
         </div>
     </div>
