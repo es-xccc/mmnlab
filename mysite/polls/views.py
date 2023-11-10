@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 
 def redhom(request):
-    return redirect('login')
+    return redirect('polls/login')
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']
@@ -12,11 +12,11 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect('/polls/login_success')
+            return HttpResponseRedirect('polls/login_success')
         else:
-            return render(request, 'login.html', {'error': 'Invalid username or password'})
+            return render(request, 'polls/login.html', {'error': 'Invalid username or password'})
     else:
-        return render(request, 'login.html')
+        return render(request, 'polls/login.html')
 
 def register(request):
     if request.method == 'POST':
@@ -25,14 +25,14 @@ def register(request):
             user = form.save()
             return redirect('login')
         else:
-            return render(request, 'register.html', {'form': form})
+            return render(request, 'polls/register.html', {'form': form})
     else:
         form = UserCreationForm()
-        return render(request, 'register.html', {'form': form})
+        return render(request, 'polls/register.html', {'form': form})
 
 def login_success(request):
-    return render(request, 'login_success.html')
+    return render(request, 'polls/login_success.html')
 
 def logout_view(request):
     logout(request)
-    return redirect('/polls/login')
+    return redirect('polls/login')
