@@ -7,15 +7,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="{% static 'student/login_success.css' %}">
+    <link rel="stylesheet" href="{% static 'teacher/login_success.css' %}">
 
 </head>
 <body>
-    <p>Welcome student, {{ request.user.username }}!</p>
+    <p>Welcome teacher, {{ request.user.username }}!</p>
     <a href="{% url 'login' %}" class="btn btn-primary mt-3">登出</a>
     <div id="app">
         <h1>Hello Vue!</h1>
     </div>
-    <script src="{% static 'student/login_success.js' %}"></script>
+    <script src="{% static 'teacher/login_success.js' %}"></script>
 </body>
 </html>

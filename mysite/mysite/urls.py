@@ -4,6 +4,7 @@ from student import views as student_views
 
 urlpatterns = [
     path("student/", include("student.urls")),
+    path("teacher/", include("teacher.urls")),
     path("admin/", admin.site.urls),
     path('', student_views.redhom, name='home'),
 ]
