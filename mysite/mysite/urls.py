@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.urls import include, path
-from polls import views as polls_views
+from student import views as student_views
 
 urlpatterns = [
-    path("polls/", include("polls.urls")),
+    path("student/", include("student.urls")),
     path("admin/", admin.site.urls),
-    path('', polls_views.redhom, name='home'),
+    path('', student_views.redhom, name='home'),
 ]
