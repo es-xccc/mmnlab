@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 </head>
 <body>
+    <h1 class="text-center mt-3">學生登入</h1>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -23,7 +24,7 @@
                 {% if error %}
                     <p class="text-danger">{{ error }}</p>
                 {% endif %}
-                <a href="{% url 'register' %}" class="btn btn-primary mt-3">註冊</a>
+                <a href="{% url 'st_register' %}" class="btn btn-primary mt-3">註冊</a>
             </div>
         </div>
     </div>
