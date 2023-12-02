@@ -2,6 +2,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.conf import settings
+from django.http import JsonResponse
+import os
 
 def redhom(request):
     return redirect('learn/home')
@@ -16,11 +19,11 @@ def st_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('iblearning')
+            return redirect('ib_learning')
         else:
-            return render(request, 'learn/login.html', {'error': 'Invalid username or password'})
+            return render(request, 'learn/st_login.html', {'error': 'Invalid username or password'})
     else:
-        return render(request, 'learn/login.html')
+        return render(request, 'learn/st_login.html')
 
 def st_register(request):
     if request.method == 'POST':
@@ -42,4 +45,11 @@ def ib_learning(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('learn/st_login')
+    return redirect('learn/home')
+
+def get_last_line(request):
+    file_path = os.path.join(settings.BASE_DIR, 'learn', 'test1.txt')
+    with open(file_path, 'r') as file:
+        lines = file.read().splitlines()
+        last_line = lines[-1] if lines else ''
+    return JsonResponse({'last_line': last_line})

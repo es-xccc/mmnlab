@@ -1,0 +1,17 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    setInterval(function(){
+        $.ajax({
+            url: "{% url 'get_last_line' %}",
+            success: function(data) {
+                // Update your page with the last line
+                $('#last-line').text(data.last_line);
+            }
+        });
+    }, 1000);
+});
+</script>
+
+<!-- Element to display the last line -->
+<p id="last-line"></p>
