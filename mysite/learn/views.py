@@ -45,11 +45,17 @@ def ib_learning(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('learn/home')
+    return redirect('home')
 
-def get_last_line(request):
+def get_time(request):
     file_path = os.path.join(settings.BASE_DIR, 'learn', 'test1.txt')
     with open(file_path, 'r') as file:
         lines = file.read().splitlines()
-        last_line = lines[-1] if lines else ''
-    return JsonResponse({'last_line': last_line})
+        result = 0
+        for line in lines:
+            numbers = line.split()
+            numbers = list(map(int, numbers))
+            result += (numbers[1] - numbers[0]) * numbers[2]
+        total_time = numbers[1]
+        result /= total_time
+    return JsonResponse({'result': result})

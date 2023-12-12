@@ -8,5 +8,5 @@ urlpatterns = [
     path('ib_learning/', views.ib_learning, name='ib_learning'),
     path('monitor/', views.monitor, name='monitor'),
     path('logout/', views.logout_view, name='logout_view'),
-    path('get_last_line/', views.get_last_line, name='get_last_line'),
+    path('get_time/', views.get_time, name='get_time'),
 ]
