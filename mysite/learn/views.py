@@ -59,3 +59,12 @@ def get_time(request):
         total_time = numbers[1]
         result /= total_time
     return JsonResponse({'result': result})
+
+def get_state(request):
+    file_path = os.path.join(settings.BASE_DIR, 'learn', 'test1.txt')
+    with open(file_path, 'r') as file:
+        lines = file.read().splitlines()
+        last_line = lines[-1] if lines else ''
+        last_state = last_line.split()[2] if last_line else ''
+        print(last_state)
+    return JsonResponse({'last_state': last_state})

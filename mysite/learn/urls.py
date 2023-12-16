@@ -9,4 +9,5 @@ urlpatterns = [
     path('monitor/', views.monitor, name='monitor'),
     path('logout/', views.logout_view, name='logout_view'),
     path('get_time/', views.get_time, name='get_time'),
+    path('get_state/', views.get_state, name='get_state'),
 ]
