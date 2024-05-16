@@ -36,7 +36,7 @@
             var myChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: ['學習中', '沒在學習'],
+                    labels: ['Learning', 'Not learning'],
                     datasets: [{
                         data: [0, 1],
                         backgroundColor: ['green', 'gray'],
@@ -62,9 +62,9 @@
             $.get("{% url 'get_state' %}", function(data){
                 var state = data.last_state;
                 if (state == '1') {
-                    $('#state').text('目前正在學習');
+                    $('#state').text('Learning');
                 } else if (state == '0') {
-                    $('#state').text('目前正在放空');
+                    $('#state').text('Not learning');
                 }
             });
         });
